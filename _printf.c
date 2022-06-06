@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			}
 			while (get_flag(*s, &flag))
 				s++;
-			pfunc = get_print(*S);
+			pfunc = get_print(*s);
 			counter += (pfunc)
 				? pfunc(argument, &flag)
 				:_printf("%%%c", *s);
@@ -49,6 +49,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	_putchar(-1);
-	var_end(argument);
+	va_end(argument);
 	return (counter);
 }
